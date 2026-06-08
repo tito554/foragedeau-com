@@ -2,7 +2,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Surveillance des eaux en temps réel en France · Forage d'Eau</title><meta name="description" content="Débit des cours d’eau en temps réel des stations officielles Hub'Eau (Eaufrance) en France. Pertinent pour les eaux souterraines, les forages, les puits"><meta name="theme-color" content="#0A2540">
 <link rel="canonical" href="https://foragedeau.com/blog/niveaux-deau/"><meta property="og:title" content="Surveillance des eaux en temps réel en France"><meta property="og:url" content="https://foragedeau.com/blog/niveaux-deau/">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Surveillance des eaux en temps réel en France", "url": "https://foragedeau.com/blog/niveaux-deau/", "inLanguage": "fr", "publisher": {"@type": "Organization", "name": "Forage d'Eau"}}</script>
 <style>:root{--primary:#0A2540;--accent:#0369a1;--bg:#f9fafb;--border:#e5e7eb;--muted:#64748b;--font-body:'Source Sans 3',sans-serif;--font-h:'Source Serif 4',Georgia,serif}
@@ -15,8 +15,64 @@ table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(-
 .src{background:#eff6ff;border-left:4px solid #2563eb;padding:16px 20px;margin:22px 0;border-radius:4px}.src a{color:#2563eb}
 .cta{background:var(--primary);color:#fff;padding:30px;border-radius:12px;text-align:center;margin:30px 0}.cta h3{color:#fff;margin-bottom:8px;font-family:var(--font-h)}.cta p{color:#e5e7eb}.cta a{display:inline-block;background:#0369a1;color:#fff;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:600;margin-top:14px}
 footer{background:#0f172a;color:#cbd5e1;padding:26px 0;font-size:.88rem;margin-top:36px}footer a{color:#fff}</style>
-<style id="ftr-fix">footer .container>div{min-width:0}footer p,footer a{overflow-wrap:anywhere;word-break:break-word}</style></head><body><header><div class="container"><a href="/" class="brand">Forage d'Eau</a><nav><a href="/">Accueil</a><a href="/blog/niveaux-deau/">Données eau</a></nav></div></header>
-<section class="hero"><div class="container"><h1>Surveillance des eaux en temps réel en France</h1><p>Débit des cours d’eau en temps réel des stations officielles Hub'Eau (Eaufrance) en France. Pertinent pour les eaux souterraines, les forages, les puits et les travaux géotechniques.</p></div></section>
+<style id="ftr-fix">footer .container>div{min-width:0}footer p,footer a{overflow-wrap:anywhere;word-break:break-word}</style><!--selfhost-fonts--><link rel="preload" href="fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high"><style>@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/inter-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/inter-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/inter-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/inter-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/lora-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/lora-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/lora-700-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/lora-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}</style></head><body><header><div class="container"><a href="/" class="brand">Forage d'Eau</a><nav><a href="/">Accueil</a><a href="/blog/niveaux-deau/">Données eau</a></nav></div></header>
+<section class="hero"><div class="container"><h1>Surveillance des eaux en temps réel en France</h1><p>Débit des cours d’eau en temps réel des stations officielles Hub'Eau (Eaufrance) en France. Pertinent pour les eaux souterraines, les forages, les puits et les travaux hydrogéologiques.</p></div></section>
 <main><div class="container"><div class="stats">
 <div class="stat"><div class="stat-num">40</div><div class="stat-label">Stations actives</div></div>
 <div class="stat"><div class="stat-num">35</div><div class="stat-label">Débit max (m³/s)</div></div>
@@ -90,7 +146,7 @@ var marks=[[48.7107,6.1793,"La Meurthe à Malzéville - Limni",35.2,"m³/s"],
 <tr><td>La Seille à Chambrey</td><td><strong>3.4</strong> m³/s</td></tr>
 <tr><td>La Vologne à Cheniménil</td><td><strong>3.1</strong> m³/s</td></tr>
 <tr><td>La Meuse à Commercy</td><td><strong>2.9</strong> m³/s</td></tr></table>
-<h2>Pourquoi les données d’eau comptent en géotechnique</h2><p>Le niveau de la nappe et le débit des rivières gouvernent la pression interstitielle, la contrainte effective, la stabilité des pentes, le rendement des puits et la conception des fondations, du rabattement et des forages.</p>
+<h2>Pourquoi les données d’eau comptent en hydrogéologique</h2><p>Le niveau de la nappe et le débit des rivières gouvernent la pression interstitielle, la contrainte effective, la stabilité des pentes, le rendement des puits et la conception des fondations, du rabattement et des forages.</p>
 <h2>Source officielle</h2><div class="src"><p>Données : <strong>Hub'Eau (Eaufrance)</strong>. <a href="https://hubeau.eaufrance.fr/" target="_blank" rel="noopener">Portail officiel →</a></p></div>
-<div class="cta"><h3>Forage d'Eau — forage & eaux souterraines</h3><p>Forages d’eau, rabattement, essais de perméabilité et reconnaissance géotechnique.</p><a href="/">Nos services →</a></div>
+<div class="cta"><h3>Forage d'Eau — forage & eaux souterraines</h3><p>Forages d’eau, rabattement, essais de perméabilité et reconnaissance hydrogéologique.</p><a href="/">Nos services →</a></div>
 </div></main><footer><div class="container"><p>&copy; 2026 Forage d'Eau · Hub'Eau (Eaufrance)</p></div></footer></body></html>
