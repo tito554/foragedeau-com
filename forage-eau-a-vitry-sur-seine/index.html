@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230A2540'/%3E%3Cpath d='M14 44 L24 30 L34 38 L44 22 L50 28' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/css/leaflet-51c9.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/css/leaflet-51c9.css"></noscript>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Forage d'Eau Vitry Sur Seine", "description": "Expertise en forage d'eau et ressources souterraines à Vitry Sur Seine. Contexte géologique local, réglementation et solutions adaptées au bassin de la Seine.", "url": "https://foragedeau.com/forage-eau-a-vitry-sur-seine/", "areaServed": {"@type": "City", "name": "Vitry Sur Seine"}, "address": {"@type": "PostalAddress", "addressLocality": "Vitry Sur Seine", "addressCountry": "France"}, "email": "contact@foragedeau.com", "priceRange": "$$", "geo": {"@type": "GeoCoordinates", "latitude": 48.79, "longitude": 2.39}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Forage d'Eau à Vitry Sur Seine · Forage d'Eau — France", "url": "https://foragedeau.com/forage-eau-a-vitry-sur-seine/", "description": "Expertise en forage d'eau et ressources souterraines à Vitry Sur Seine. Contexte géologique local, réglementation et solutions adaptées au bassin de la Seine.", "inLanguage": "fr", "datePublished": "2026-06-06", "dateModified": "2026-06-06", "isPartOf": {"@type": "WebSite", "url": "https://foragedeau.com/", "name": "Forage d'Eau"}, "breadcrumb": {"@id": "https://foragedeau.com/forage-eau-a-vitry-sur-seine/#breadcrumb"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://foragedeau.com/"}, {"@type": "ListItem", "position": 2, "name": "Vitry Sur Seine", "item": "https://foragedeau.com/forage-eau-a-vitry-sur-seine/"}], "@id": "https://foragedeau.com/forage-eau-a-vitry-sur-seine/#breadcrumb"}</script>
@@ -41,8 +41,8 @@
   --text:#1a2122;
   --border:#e2e8e7;
   --muted:#64748b;
-  --font-body:'Inter',-apple-system,sans-serif;
-  --font-h:'Lora',Georgia,serif;
+  --font-body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --font-h:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -205,63 +205,7 @@ footer .footer-designer-credit{color:#94a3b8;font-size:.78rem;margin-top:8px;fon
 /* drop-cap REMOVIDO 2026-05-27 (user feedback) — afectaba a todos los párrafos de cards/bloques */
 
 </style>
-<!--selfhost-fonts--><link rel="preload" href="fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high"><style>@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(fonts/inter-400-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(fonts/inter-400-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(fonts/inter-600-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(fonts/inter-600-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {
-  font-family: 'Lora';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(fonts/lora-600-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}@font-face {
-  font-family: 'Lora';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(fonts/lora-600-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {
-  font-family: 'Lora';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(fonts/lora-700-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}@font-face {
-  font-family: 'Lora';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(fonts/lora-700-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}</style></head>
+<!--selfhost-fonts--><style></style></head>
 <body>
 <header>
 <div class="container">
@@ -309,7 +253,7 @@ footer .footer-designer-credit{color:#94a3b8;font-size:.78rem;margin-top:8px;fon
 
 
 <section class="block">
-<div class="hero-img-wrap"><img src="../img/entubado-pozo-2.webp" alt="Services de forage de puits à Vitry Sur Seine" loading="eager" fetchpriority="high" decoding="async" width="600" height="400"></div>
+<div class="hero-img-wrap"><img src="../img/entubado-pozo-2.webp" alt="Services de forage de puits à Vitry Sur Seine" loading="eager" fetchpriority="high" decoding="async" width="500" height="500"></div>
 La densité urbaine et la proximité du fleuve Seine à Vitry Sur Seine créent un contexte hydrogéologique spécifique, où la pression sur la nappe alluviale nécessite une approche rigoureuse pour tout projet de captage. Notre équipe intervient sur la base d'une compréhension fine des formations de sables et graviers de la terrasse alluviale, dont l'épaisseur et la productivité varient significativement. La réglementation locale, notamment le Code de l'Environnement et les directives du SDAGE Seine-Normandie, encadre strictement les prélèvements, rendant indispensable une caractérisation préalable précise pour garantir la pérennité de la ressource.
 </section>
 
@@ -387,7 +331,7 @@ La densité urbaine et la proximité du fleuve Seine à Vitry Sur Seine créent 
 <section class="block map">
 <h2>Couverture — Vitry Sur Seine</h2>
 <div id="mapa-ciudad" style="width:100%;height:340px"></div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="/js/leaflet-51c9.js" defer></script>
 <script>
 (function(){
   var el=document.getElementById('mapa-ciudad');
