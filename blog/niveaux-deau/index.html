@@ -22,7 +22,7 @@ footer{background:#0f172a;color:#cbd5e1;padding:26px 0;font-size:.88rem;margin-t
 <div class="stat"><div class="stat-num">02 Jun 2026</div><div class="stat-label">Mis à jour</div></div></div>
 <h2>Stations de mesure</h2><div id="w-map" style="height:440px;width:100%;border-radius:12px;border:1px solid #e5e7eb;margin-bottom:28px"></div>
 <script src="/js/leaflet-51c9.js" defer></script>
-<script>(function(){var el=document.getElementById('w-map');if(!el||!window.L)return;var map=L.map('w-map').setView([48.902,5.399],5);
+<script>document.addEventListener('DOMContentLoaded',function(){/*lf-defer-fix*/(function(){var el=document.getElementById('w-map');if(!el||!window.L)return;var map=L.map('w-map').setView([48.902,5.399],5);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OSM',maxZoom:12}).addTo(map);
 var marks=[[48.7107,6.1793,"La Meurthe à Malzéville - Limni",35.2,"m³/s"],
 [49.0311,6.0541,"La Moselle à Corny-sur-Moselle - D",33.0,"m³/s"],
@@ -63,7 +63,8 @@ var marks=[[48.7107,6.1793,"La Meurthe à Malzéville - Limni",35.2,"m³/s"],
 [49.6604,4.8829,"La Bar à Cheveuges",1.5,"m³/s"],
 [49.3244,6.5453,"La Nied à Filstroff",1.4,"m³/s"],
 [48.1847,7.0025,"La Meurthe à Fraize",1.4,"m³/s"],
-[49.2273,5.0340,"L'Aire à Varennes-en-Argonne",1.3,"m³/s"]];marks.forEach(function(m){L.circleMarker([m[0],m[1]],{radius:6,fillColor:'#0369a1',color:'#fff',weight:2,fillOpacity:.85}).addTo(map).bindPopup('<strong>'+m[2]+'</strong><br>'+m[3]+' '+m[4]);});})();</script>
+[49.2273,5.0340,"L'Aire à Varennes-en-Argonne",1.3,"m³/s"]];marks.forEach(function(m){L.circleMarker([m[0],m[1]],{radius:6,fillColor:'#0369a1',color:'#fff',weight:2,fillOpacity:.85}).addTo(map).bindPopup('<strong>'+m[2]+'</strong><br>'+m[3]+' '+m[4]);});})();
+});</script>
 <h2>Relevés actuels</h2><table><tr><th style="text-align:left;padding:10px 14px;background:#0A2540;color:#fff">Station</th><th style="text-align:right;padding:10px 14px;background:#0A2540;color:#fff">Mesure</th></tr><tr><td>La Meurthe à Malzéville - Limni</td><td><strong>35.2</strong> m³/s</td></tr>
 <tr><td>La Moselle à Corny-sur-Moselle - Débitmètre</td><td><strong>33.0</strong> m³/s</td></tr>
 <tr><td>La Moselle à Custines</td><td><strong>31.1</strong> m³/s</td></tr>
