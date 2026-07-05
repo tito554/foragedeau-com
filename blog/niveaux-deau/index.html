@@ -1,96 +1,192 @@
 <!DOCTYPE html><html lang="fr"><head>
+
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Surveillance des eaux en temps réel en France · Forage d'Eau</title><link rel="preload" as="image" href="img/bomba-sumergible-1.webp" fetchpriority="high"><meta name="description" content="Débit des cours d’eau en temps réel des stations officielles Hub'Eau (Eaufrance) en France. Pertinent pour les eaux souterraines, les forages, les puits"><meta name="theme-color" content="#0A2540">
+
+<title>Surveillance des eaux en temps réel en France · Forage d'Eau</title>
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg"><link rel="icon" type="image/png" sizes="96x96" href="/favicon.png"><link rel="apple-touch-icon" href="/img/favicon.svg"><meta name="description" content="Débit des cours d’eau en temps réel des stations officielles Hub'Eau (Eaufrance) en France. Pertinent pour les eaux souterraines, les forages, les puits"><meta name="theme-color" content="#0A2540">
+
 <link rel="canonical" href="https://foragedeau.com/blog/niveaux-deau/"><meta property="og:title" content="Surveillance des eaux en temps réel en France"><meta property="og:url" content="https://foragedeau.com/blog/niveaux-deau/">
 
-<link rel="stylesheet" href="/css/leaflet-51c9.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/css/leaflet-51c9.css"></noscript>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Surveillance des eaux en temps réel en France", "url": "https://foragedeau.com/blog/niveaux-deau/", "inLanguage": "fr", "publisher": {"@type": "Organization", "name": "Forage d'Eau"}}</script>
-<style>:root{--primary:#0A2540;--accent:#0369a1;--bg:#f9fafb;--border:#e5e7eb;--muted:#64748b;--font-body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--font-h:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;padding:0}body{font-family:var(--font-body);line-height:1.65;color:#1f2937;background:var(--bg)}a{color:var(--accent)}.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+<style>:root{--primary:#0A2540;--accent:#0369a1;--bg:#f9fafb;--border:#e5e7eb;--muted:#64748b;--font-body:'Source Sans 3',sans-serif;--font-h:'Source Serif 4',Georgia,serif}
+
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);line-height:1.65;color:#1f2937;background:var(--bg)}a{color:var(--accent)}.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
 header{background:var(--primary);color:#fff;padding:18px 0}header .container{display:flex;align-items:center;justify-content:space-between}header a{color:#fff;text-decoration:none}header .brand{font-family:var(--font-h);font-size:1.2rem;font-weight:700}header nav{display:flex;gap:16px;font-size:.92rem}
+
 .hero{background:linear-gradient(135deg,#0369a1,#075985);color:#fff;padding:56px 0 36px}.hero h1{font-family:var(--font-h);font-size:2.2rem;margin-bottom:12px}.hero p{color:#bae6fd;max-width:720px}
+
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin:24px 0}.stat{background:#fff;border:1px solid var(--border);border-radius:8px;padding:18px;text-align:center}.stat-num{font-size:1.7rem;font-weight:700;color:var(--primary);font-family:var(--font-h)}.stat-label{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+
 main{padding:38px 0 60px}main h2{font-family:var(--font-h);font-size:1.4rem;color:var(--primary);margin:26px 0 12px;border-bottom:2px solid #0369a1;padding-bottom:6px;display:inline-block}main p{margin-bottom:14px}
+
 table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden}td{padding:9px 14px;border-bottom:1px solid var(--border)}tr td:last-child{text-align:right;white-space:nowrap}
+
 .src{background:#eff6ff;border-left:4px solid #2563eb;padding:16px 20px;margin:22px 0;border-radius:4px}.src a{color:#2563eb}
+
 .cta{background:var(--primary);color:#fff;padding:30px;border-radius:12px;text-align:center;margin:30px 0}.cta h3{color:#fff;margin-bottom:8px;font-family:var(--font-h)}.cta p{color:#e5e7eb}.cta a{display:inline-block;background:#0369a1;color:#fff;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:600;margin-top:14px}
+
 footer{background:#0f172a;color:#cbd5e1;padding:26px 0;font-size:.88rem;margin-top:36px}footer a{color:#fff}</style>
-<style id="ftr-fix">footer .container>div{min-width:0}footer p,footer a{overflow-wrap:anywhere;word-break:break-word}</style><!--selfhost-fonts--><style></style></head><body><header><div class="container"><a href="/" class="brand">Forage d'Eau</a><nav><a href="/">Accueil</a><a href="/blog/niveaux-deau/">Données eau</a></nav></div></header>
+
+<style id="ftr-fix">footer .container>div{min-width:0}footer p,footer a{overflow-wrap:anywhere;word-break:break-word}</style><!--selfhost-fonts--><link rel="preload" href="fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high"><style></style><style id="selfhost-fonts">body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}</style></head><body><header><div class="container"><a href="/" class="brand">Forage d'Eau</a><nav><a href="/">Accueil</a><a href="/blog/niveaux-deau/">Données eau</a></nav></div></header>
+
 <section class="hero"><div class="container"><h1>Surveillance des eaux en temps réel en France</h1><p>Débit des cours d’eau en temps réel des stations officielles Hub'Eau (Eaufrance) en France. Pertinent pour les eaux souterraines, les forages, les puits et les travaux hydrogéologiques.</p></div></section>
+
 <main><div class="container"><div class="stats">
+
 <div class="stat"><div class="stat-num">40</div><div class="stat-label">Stations actives</div></div>
+
 <div class="stat"><div class="stat-num">35</div><div class="stat-label">Débit max (m³/s)</div></div>
+
 <div class="stat"><div class="stat-num">02 Jun 2026</div><div class="stat-label">Mis à jour</div></div></div>
+
 <h2>Stations de mesure</h2><div id="w-map" style="height:440px;width:100%;border-radius:12px;border:1px solid #e5e7eb;margin-bottom:28px"></div>
-<script src="/js/leaflet-51c9.js" defer></script>
-<script>document.addEventListener('DOMContentLoaded',function(){/*lf-defer-fix*/(function(){var el=document.getElementById('w-map');if(!el||!window.L)return;var map=L.map('w-map').setView([48.902,5.399],5);
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>(function(){var el=document.getElementById('w-map');if(!el||!window.L)return;var map=L.map('w-map').setView([48.902,5.399],5);
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OSM',maxZoom:12}).addTo(map);
+
 var marks=[[48.7107,6.1793,"La Meurthe à Malzéville - Limni",35.2,"m³/s"],
+
 [49.0311,6.0541,"La Moselle à Corny-sur-Moselle - D",33.0,"m³/s"],
+
 [48.7897,6.1218,"La Moselle à Custines",31.1,"m³/s"],
+
 [49.7013,4.9361,"La Meuse à Sedan",25.6,"m³/s"],
+
 [49.3167,6.1727,"La Moselle à Uckange",25.4,"m³/s"],
+
 [48.0198,6.5971,"La Moselle à Remiremont",20.0,"m³/s"],
+
 [49.4943,5.1789,"La Meuse à Stenay",18.5,"m³/s"],
+
 [49.2240,1.1777,"L'Eure à Louviers",17.8,"m³/s"],
+
 [49.1723,5.3791,"La Meuse à Belleville-sur-Meuse",17.2,"m³/s"],
+
 [48.3124,6.3912,"La Moselle à Châtel-sur-Moselle",11.4,"m³/s"],
+
 [48.5323,6.2638,"La Moselle à Velle-sur-Moselle",10.5,"m³/s"],
+
 [48.6074,6.1006,"La Moselle à Pont-Saint-Vincent",10.5,"m³/s"],
+
 [49.5161,5.3127,"La Chiers à Chauvency-le-Château",9.2,"m³/s"],
+
 [48.5829,6.4810,"La Meurthe à Lunéville - Aval",8.8,"m³/s"],
+
 [48.4492,6.7386,"La Meurthe à Baccarat - aval",8.1,"m³/s"],
+
 [48.4477,6.7400,"La Meurthe à Baccarat - amont",7.8,"m³/s"],
+
 [49.8629,4.7863,"La Semoy à Haulmé",7.7,"m³/s"],
+
 [48.5827,6.4819,"La Meurthe à Lunéville - Amont",7.2,"m³/s"],
+
 [48.6425,6.2722,"La Meurthe à Laneuveville-devant-N",5.8,"m³/s"],
+
 [48.8710,5.5306,"La Meuse à Saint-Mihiel",4.3,"m³/s"],
+
 [47.9457,-1.7503,"La Vilaine à Bourg-des-Comptes - L",4.2,"m³/s"],
+
 [48.4020,6.8451,"La Meurthe à Raon-l'Étape",3.7,"m³/s"],
+
 [48.7840,6.4571,"La Seille à Chambrey",3.4,"m³/s"],
+
 [48.1329,6.6034,"La Vologne à Cheniménil",3.1,"m³/s"],
+
 [48.7683,5.6030,"La Meuse à Commercy",2.9,"m³/s"],
+
 [48.8882,6.2276,"La Seille à Nomeny",2.5,"m³/s"],
+
 [49.2564,6.0720,"L'Orne à Rosselange",2.2,"m³/s"],
+
 [49.4884,1.0471,"Le Cailly à Notre-Dame-de-Bondevil",2.2,"m³/s"],
+
 [48.4163,6.8779,"La Plaine à Raon-l'Étape [La Trouc",2.0,"m³/s"],
+
 [49.1005,6.1882,"La Seille à Metz - Pont Lothaire a",2.0,"m³/s"],
+
 [48.7809,6.5678,"La Seille à Moyenvic",1.9,"m³/s"],
+
 [49.0122,5.9615,"Le Rupt de Mad à Onville",1.9,"m³/s"],
+
 [48.9750,-1.0554,"La Vire à Tessy-sur-Vire",1.8,"m³/s"],
+
 [49.4753,5.6573,"La Chiers à Montigny-sur-Chiers",1.7,"m³/s"],
+
 [49.7799,4.6377,"La Sormonne à Belval",1.5,"m³/s"],
+
 [48.6014,5.6789,"La Meuse à Vaucouleurs [Chalaines]",1.5,"m³/s"],
+
 [49.6604,4.8829,"La Bar à Cheveuges",1.5,"m³/s"],
+
 [49.3244,6.5453,"La Nied à Filstroff",1.4,"m³/s"],
+
 [48.1847,7.0025,"La Meurthe à Fraize",1.4,"m³/s"],
-[49.2273,5.0340,"L'Aire à Varennes-en-Argonne",1.3,"m³/s"]];marks.forEach(function(m){L.circleMarker([m[0],m[1]],{radius:6,fillColor:'#0369a1',color:'#fff',weight:2,fillOpacity:.85}).addTo(map).bindPopup('<strong>'+m[2]+'</strong><br>'+m[3]+' '+m[4]);});})();
-});</script>
+
+[49.2273,5.0340,"L'Aire à Varennes-en-Argonne",1.3,"m³/s"]];marks.forEach(function(m){L.circleMarker([m[0],m[1]],{radius:6,fillColor:'#0369a1',color:'#fff',weight:2,fillOpacity:.85}).addTo(map).bindPopup('<strong>'+m[2]+'</strong><br>'+m[3]+' '+m[4]);});})();</script>
+
 <h2>Relevés actuels</h2><table><tr><th style="text-align:left;padding:10px 14px;background:#0A2540;color:#fff">Station</th><th style="text-align:right;padding:10px 14px;background:#0A2540;color:#fff">Mesure</th></tr><tr><td>La Meurthe à Malzéville - Limni</td><td><strong>35.2</strong> m³/s</td></tr>
+
 <tr><td>La Moselle à Corny-sur-Moselle - Débitmètre</td><td><strong>33.0</strong> m³/s</td></tr>
+
 <tr><td>La Moselle à Custines</td><td><strong>31.1</strong> m³/s</td></tr>
+
 <tr><td>La Meuse à Sedan</td><td><strong>25.6</strong> m³/s</td></tr>
+
 <tr><td>La Moselle à Uckange</td><td><strong>25.4</strong> m³/s</td></tr>
+
 <tr><td>La Moselle à Remiremont</td><td><strong>20.0</strong> m³/s</td></tr>
+
 <tr><td>La Meuse à Stenay</td><td><strong>18.5</strong> m³/s</td></tr>
+
 <tr><td>L'Eure à Louviers</td><td><strong>17.8</strong> m³/s</td></tr>
+
 <tr><td>La Meuse à Belleville-sur-Meuse</td><td><strong>17.2</strong> m³/s</td></tr>
+
 <tr><td>La Moselle à Châtel-sur-Moselle</td><td><strong>11.4</strong> m³/s</td></tr>
+
 <tr><td>La Moselle à Velle-sur-Moselle</td><td><strong>10.5</strong> m³/s</td></tr>
+
 <tr><td>La Moselle à Pont-Saint-Vincent</td><td><strong>10.5</strong> m³/s</td></tr>
+
 <tr><td>La Chiers à Chauvency-le-Château</td><td><strong>9.2</strong> m³/s</td></tr>
+
 <tr><td>La Meurthe à Lunéville - Aval</td><td><strong>8.8</strong> m³/s</td></tr>
+
 <tr><td>La Meurthe à Baccarat - aval</td><td><strong>8.1</strong> m³/s</td></tr>
+
 <tr><td>La Meurthe à Baccarat - amont</td><td><strong>7.8</strong> m³/s</td></tr>
+
 <tr><td>La Semoy à Haulmé</td><td><strong>7.7</strong> m³/s</td></tr>
+
 <tr><td>La Meurthe à Lunéville - Amont</td><td><strong>7.2</strong> m³/s</td></tr>
+
 <tr><td>La Meurthe à Laneuveville-devant-Nancy [la Madelei</td><td><strong>5.8</strong> m³/s</td></tr>
+
 <tr><td>La Meuse à Saint-Mihiel</td><td><strong>4.3</strong> m³/s</td></tr>
+
 <tr><td>La Vilaine à Bourg-des-Comptes - La Bouëxière [amo</td><td><strong>4.2</strong> m³/s</td></tr>
+
 <tr><td>La Meurthe à Raon-l'Étape</td><td><strong>3.7</strong> m³/s</td></tr>
+
 <tr><td>La Seille à Chambrey</td><td><strong>3.4</strong> m³/s</td></tr>
+
 <tr><td>La Vologne à Cheniménil</td><td><strong>3.1</strong> m³/s</td></tr>
+
 <tr><td>La Meuse à Commercy</td><td><strong>2.9</strong> m³/s</td></tr></table>
+
 <h2>Pourquoi les données d’eau comptent en hydrogéologique</h2><p>Le niveau de la nappe et le débit des rivières gouvernent la pression interstitielle, la contrainte effective, la stabilité des pentes, le rendement des puits et la conception des fondations, du rabattement et des forages.</p>
+
 <h2>Source officielle</h2><div class="src"><p>Données : <strong>Hub'Eau (Eaufrance)</strong>. Portail officiel →</p></div>
+
 <div class="cta"><h3>Forage d'Eau — forage & eaux souterraines</h3><p>Forages d’eau, rabattement, essais de perméabilité et reconnaissance hydrogéologique.</p><a href="/">Nos services →</a></div>
+
 </div></main><footer><div class="container"><p>&copy; 2026 Forage d'Eau · Hub'Eau (Eaufrance)</p></div></footer></body></html>
